@@ -1,0 +1,26 @@
+---
+- name: Ansible operations
+  hosts: all
+  become: true
+
+  tasks:
+  - name: Installing nginx
+    apt:
+      name: nginx
+      state: present
+
+  - name: Creating a user
+    user:
+      name: pratikmahankal
+      password: pratikmahankal
+      state: present
+
+  - name: creating a dir 60 in home
+    file:
+      path: /home/60
+      state: directory
+
+  - name: Uninstalling nano
+    apt:
+      name: nano
+      state: absent
